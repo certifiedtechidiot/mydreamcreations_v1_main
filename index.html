@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dream Creation Events | Luxury Wedding Planning & Decor</title>
+  <meta name="description" content="Your dream wedding, perfectly planned. Luxury wedding planning, bespoke floral scenography, and flawless celebrations by Dream Creation Events.">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <!-- ===================================================
+       HEADER & NAVIGATION
+       =================================================== -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <!-- Logo matching Bella Vows style -->
+      <a href="#" class="brand-logo">
+        <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M12 2C8 6 4 9 4 14a8 8 0 0 0 16 0c0-5-4-8-8-12z" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M12 10v12M12 14c-2-2-4-2-4-2M12 17c2-2 4-2 4-2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="brand-text">
+          <span class="brand-name">Dream Creation</span>
+          <span class="brand-tagline">Wedding Planning</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Menu -->
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#journal">Journal</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <!-- Action Button -->
+      <div class="nav-actions">
+        <button onclick="openModal()" class="btn btn-olive">Inquire Now</button>
+      </div>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle Navigation">
+        <i data-lucide="menu"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===================================================
+       HERO SECTION
+       =================================================== -->
+  <section id="home" class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="container">
+      <div class="hero-content">
+        <h1>Your Dream Wedding, Perfectly Planned</h1>
+        <p>Luxury wedding planning and design for couples who value elegance, style and unforgettable moments.</p>
+        <button onclick="openModal()" class="btn btn-olive">Let's Plan Your Day</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================
+       VALUES SECTION: "WE PLAN. YOU CELEBRATE."
+       =================================================== -->
+  <section id="about" class="values-section">
+    <div class="container">
+      <div class="values-header">
+        <h2 class="section-label">We Plan. You Celebrate.</h2>
+        <div class="ornament-divider">
+          <span class="ornament-diamond"></span>
+        </div>
+        <p>
+          From intimate gatherings to grand celebrations, we create timeless weddings that reflect your love story and leave a lasting impression.
+        </p>
+      </div>
+
+      <div class="values-grid">
+        <!-- 1. Personalized Experience -->
+        <div class="value-item">
+          <div class="value-icon-wrap">
+            <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+              <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+              <path d="M12 5 9.04 7.96a2.17 2.17 0 0 0 0 3.08c.82.82 2.13.85 3 .07l.96-.83"/>
+            </svg>
+          </div>
+          <h3>Personalized Experience</h3>
+          <p>Every detail tailored to your vision and style.</p>
+        </div>
+
+        <!-- 2. Bespoke Designs -->
+        <div class="value-item">
+          <div class="value-icon-wrap">
+            <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+              <path d="M12 2a4 4 0 0 0-4 4c0 3 4 7 4 7s4-4 4-7a4 4 0 0 0-4-4Z"/>
+              <path d="M12 13v9M9 16c2 1 3 0 3 0M15 18c-2 1-3 0-3 0"/>
+            </svg>
+          </div>
+          <h3>Bespoke Designs</h3>
+          <p>Unique concepts crafted to inspire and enchant.</p>
+        </div>
+
+        <!-- 3. Flawless Execution -->
+        <div class="value-item">
+          <div class="value-icon-wrap">
+            <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+              <circle cx="12" cy="14" r="7"/>
+              <path d="M8.5 7.5 12 3l3.5 4.5"/>
+              <path d="m9.5 7.5 5 0"/>
+            </svg>
+          </div>
+          <h3>Flawless Execution</h3>
+          <p>Seamless planning and perfect coordination.</p>
+        </div>
+
+        <!-- 4. Memorable Moments -->
+        <div class="value-item">
+          <div class="value-icon-wrap">
+            <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+              <path d="M8 22h8M12 15v7M10 2l-2 9a4 4 0 0 0 4 4 4 4 0 0 0 4-4l-2-9Z"/>
+              <path d="M18 6l2 5a3 3 0 0 1-3 3"/>
+            </svg>
+          </div>
+          <h3>Memorable Moments</h3>
+          <p>We create memories that last a lifetime.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================
+       SERVICES SECTION ("OUR SERVICES")
+       =================================================== -->
+  <section id="services" class="services-section">
+    <div class="container">
+      <div class="services-header">
+        <h2 class="section-label">Our Services</h2>
+        <div class="ornament-divider">
+          <span class="ornament-diamond"></span>
+        </div>
+      </div>
+
+      <div class="services-grid">
+        <!-- Service 1: Full Service Planning -->
+        <div class="service-card">
+          <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=85" alt="Full Service Wedding Planning" class="service-card-bg">
+          <div class="service-card-overlay"></div>
+          <div class="service-card-content">
+            <svg class="service-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+              <path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8M4 21h16M12 11V3M10 5l2-2 2 2"/>
+            </svg>
+            <h3>Full Service Planning</h3>
+            <p>We take care of everything from start to finish.</p>
+            <a href="javascript:void(0)" onclick="openModalWithService('Full Service Planning')" class="service-link">Learn More →</a>
+          </div>
+        </div>
+
+        <!-- Service 2: Partial Planning -->
+        <div class="service-card">
+          <img src="https://images.unsplash.com/photo-1544078751-58fee2d8a03b?auto=format&fit=crop&w=800&q=85" alt="Partial Wedding Planning" class="service-card-bg">
+          <div class="service-card-overlay"></div>
+          <div class="service-card-content">
+            <svg class="service-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+              <path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7Z"/>
+              <circle cx="12" cy="9" r="2.5"/>
+            </svg>
+            <h3>Partial Planning</h3>
+            <p>Perfect for couples who need guidance along the way.</p>
+            <a href="javascript:void(0)" onclick="openModalWithService('Partial Planning')" class="service-link">Learn More →</a>
+          </div>
+        </div>
+
+        <!-- Service 3: Day of Coordination -->
+        <div class="service-card">
+          <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=800&q=85" alt="Day of Coordination" class="service-card-bg">
+          <div class="service-card-overlay"></div>
+          <div class="service-card-content">
+            <svg class="service-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+              <path d="M5 22h14M5 2h14M17 22v-4.172a2 2 0 0 0-.586-1.414L12 12l-4.414 4.414A2 2 0 0 0 7 17.828V22M7 2v4.172a2 2 0 0 0 .586 1.414L12 12l4.414-4.414A2 2 0 0 0 17 6.172V2"/>
+            </svg>
+            <h3>Day of Coordination</h3>
+            <p>Enjoy your day while we handle the details.</p>
+            <a href="javascript:void(0)" onclick="openModalWithService('Day of Coordination')" class="service-link">Learn More →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================
+       FEATURED WEDDINGS SECTION
+       =================================================== -->
+  <section id="portfolio" class="featured-section">
+    <div class="container featured-grid">
+      <div class="featured-left">
+        <span class="sub-tag">Featured Weddings</span>
+        <h2>Timeless Stories, Beautifully Told</h2>
+        <p>Explore real celebrations we've had the honor to plan and design.</p>
+        <button onclick="openModal()" class="btn btn-olive">View Portfolio</button>
+      </div>
+
+      <div class="featured-carousel-wrapper">
+        <div class="featured-images-track" id="featuredTrack">
+          <!-- Card 1 -->
+          <div class="featured-img-card">
+            <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=85" alt="Beachfront Floral Arch Ceremony">
+          </div>
+          <!-- Card 2 -->
+          <div class="featured-img-card">
+            <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=800&q=85" alt="Candlelit Banquet Under Fairy Lights">
+          </div>
+          <!-- Card 3 -->
+          <div class="featured-img-card">
+            <img src="https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?auto=format&fit=crop&w=800&q=85" alt="Tall Centerpiece with Crystal Setting">
+          </div>
+        </div>
+
+        <div class="carousel-nav-buttons">
+          <button class="carousel-nav-btn" onclick="prevFeaturedSlide()" aria-label="Previous Slide">
+            <i data-lucide="chevron-left" style="width: 18px; height: 18px;"></i>
+          </button>
+          <button class="carousel-nav-btn" onclick="nextFeaturedSlide()" aria-label="Next Slide">
+            <i data-lucide="chevron-right" style="width: 18px; height: 18px;"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================
+       TESTIMONIALS SECTION ("KIND WORDS")
+       =================================================== -->
+  <section class="testimonials-section">
+    <!-- Botanical corner illustrations -->
+    <svg class="botanical-corner botanical-left" viewBox="0 0 100 100" fill="currentColor">
+      <path d="M10,90 Q40,40 90,10 Q60,60 10,90 Z" opacity="0.3"/>
+      <path d="M25,85 Q45,65 65,55 Q50,75 25,85 Z" opacity="0.2"/>
+    </svg>
+    <svg class="botanical-corner botanical-right" viewBox="0 0 100 100" fill="currentColor">
+      <path d="M10,90 Q40,40 90,10 Q60,60 10,90 Z" opacity="0.3"/>
+      <path d="M25,85 Q45,65 65,55 Q50,75 25,85 Z" opacity="0.2"/>
+    </svg>
+
+    <div class="container testimonials-container">
+      <h2 class="section-label">Kind Words</h2>
+      <div class="ornament-divider">
+        <span class="ornament-diamond"></span>
+      </div>
+
+      <div class="quote-content">
+        <p class="quote-text">
+          <span class="quote-symbol">“</span>
+          <span id="testimonialQuote">Dream Creation Events made our dream wedding a reality. Their attention to detail, creativity and professionalism were beyond anything we imagined. We couldn't have asked for a more perfect day!</span>
+          <span class="quote-symbol">”</span>
+        </p>
+        <div class="quote-author" id="testimonialAuthor">— EMILY & JAMES</div>
+      </div>
+
+      <div class="testimonial-dots">
+        <span class="dot active" onclick="setTestimonial(0)"></span>
+        <span class="dot" onclick="setTestimonial(1)"></span>
+        <span class="dot" onclick="setTestimonial(2)"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================
+       CTA BANNER SECTION ("LET'S START PLANNING YOUR FOREVER")
+       =================================================== -->
+  <section id="contact" class="cta-section">
+    <div class="container">
+      <div class="cta-banner-card">
+        <div class="cta-content">
+          <h2>Let's Start Planning Your Forever</h2>
+          <p>We'd love to hear your story and help you create a celebration that's uniquely yours.</p>
+          <button onclick="openModal()" class="btn btn-olive">Get In Touch</button>
+        </div>
+        <div class="cta-image-wrapper">
+          <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=85" alt="Bride and Groom Embracing">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================
+       FOOTER SECTION
+       =================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <!-- Brand column -->
+        <div class="footer-brand">
+          <div class="brand-logo" style="margin-bottom: 8px;">
+            <svg class="brand-icon" style="color: #FFFFFF;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 2C8 6 4 9 4 14a8 8 0 0 0 16 0c0-5-4-8-8-12z" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M12 10v12M12 14c-2-2-4-2-4-2M12 17c2-2 4-2 4-2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <div class="brand-text">
+              <span class="brand-name">Dream Creation</span>
+              <span class="brand-tagline">Wedding Planning</span>
+            </div>
+          </div>
+          <p>Luxury wedding planning and design for couples who value elegance, style and unforgettable moments.</p>
+          <div class="footer-socials">
+            <a href="https://www.instagram.com/dream_creation_event_/" target="_blank" aria-label="Instagram">
+              <i data-lucide="instagram" style="width: 16px; height: 16px;"></i>
+            </a>
+            <a href="https://in.pinterest.com/pin/1133570168748937080/" target="_blank" aria-label="Pinterest">
+              <i data-lucide="camera" style="width: 16px; height: 16px;"></i>
+            </a>
+            <a href="https://wa.me/918788149303" target="_blank" aria-label="WhatsApp">
+              <i data-lucide="message-circle" style="width: 16px; height: 16px;"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Explore column -->
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#journal">Journal</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Services column -->
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#services">Full Service Planning</a></li>
+            <li><a href="#services">Partial Planning</a></li>
+            <li><a href="#services">Day of Coordination</a></li>
+            <li><a href="#services">Destination Weddings</a></li>
+            <li><a href="#services">Wedding Design</a></li>
+          </ul>
+        </div>
+
+        <!-- Get In Touch column -->
+        <div class="footer-col">
+          <h4>Get In Touch</h4>
+          <ul class="contact-list">
+            <li>
+              <i data-lucide="mail"></i>
+              <span>dreamcreationeventsforyou@gmail.com</span>
+            </li>
+            <li>
+              <i data-lucide="phone"></i>
+              <span>+91 8788149303</span>
+            </li>
+            <li>
+              <i data-lucide="map-pin"></i>
+              <span>Bicholim, Goa - 403504, India<br><small style="opacity: 0.7;">Directed by @zaan_05__</small></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Footer bottom bar -->
+      <div class="footer-bottom">
+        <div>© 2026 Dream Creation Events. All Rights Reserved.</div>
+        <div class="footer-legal-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms & Conditions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================================================
+       INQUIRY MODAL (WHATSAPP + EMAIL)
+       =================================================== -->
+  <div class="inquiry-modal" id="inquiryModal" onclick="handleBackdropClick(event)">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeModal()">
+        <i data-lucide="x" style="width: 20px; height: 20px;"></i>
+      </button>
+      <div class="modal-header">
+        <h3>Begin Your Journey</h3>
+        <p>Tell us about your celebration and we'll reach out directly.</p>
+      </div>
+
+      <form id="weddingForm" onsubmit="submitInquiry(event)">
+        <div class="form-group">
+          <label for="name">Your Names</label>
+          <input type="text" id="name" class="form-control" placeholder="e.g. Emily & James" required>
+        </div>
+
+        <div class="form-group">
+          <label for="service">Service Needed</label>
+          <select id="service" class="form-control">
+            <option value="Full Service Planning">Full Service Planning</option>
+            <option value="Partial Planning">Partial Planning</option>
+            <option value="Day of Coordination">Day of Coordination</option>
+            <option value="Destination Wedding Decor">Destination Wedding Decor</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="date">Estimated Date & Location</label>
+          <input type="text" id="date" class="form-control" placeholder="e.g. December 2026, Goa" required>
+        </div>
+
+        <div class="form-group">
+          <label for="notes">Your Vision</label>
+          <textarea id="notes" class="form-control" rows="3" placeholder="Tell us about the atmosphere, colors, or guest count..."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-olive" style="width: 100%; margin-top: 10px;">
+          Send Inquiry on WhatsApp
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
