@@ -13,7 +13,7 @@
   <!-- ===================================================
        HEADER & NAVIGATION
        =================================================== -->
-  <header class="site-header">
+  <header class="site-header" id="siteHeader">
     <div class="container nav-container">
       <!-- Logo matching Bella Vows style -->
       <a href="#" class="brand-logo">
@@ -28,7 +28,7 @@
       </a>
 
       <!-- Desktop Nav Menu -->
-      <ul class="nav-links">
+      <ul class="nav-links" id="navLinks">
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#services">Services</a></li>
@@ -50,16 +50,38 @@
   </header>
 
   <!-- ===================================================
-       HERO SECTION
+       HERO SECTION (DYNAMIC MULTI-PHOTO SLIDESHOW)
        =================================================== -->
   <section id="home" class="hero-section">
+    <!-- Background Slideshow with Smooth Crossfade & Ken Burns Zoom -->
+    <div class="hero-slideshow" id="heroSlideshow">
+      <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1920&q=85');"></div>
+      <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1544078751-58fee2d8a03b?auto=format&fit=crop&w=1920&q=85');"></div>
+      <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=1920&q=85');"></div>
+      <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1920&q=85');"></div>
+      <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1920&q=85');"></div>
+    </div>
+
     <div class="hero-overlay"></div>
-    <div class="container">
-      <div class="hero-content">
+
+    <div class="container hero-container">
+      <div class="hero-content reveal-on-scroll">
+        <div class="hero-badge-pill">
+          <span class="badge-dot"></span> Goa's Premier Wedding Stylists
+        </div>
         <h1>Your Dream Wedding, Perfectly Planned</h1>
         <p>Luxury wedding planning and design for couples who value elegance, style and unforgettable moments.</p>
-        <button onclick="openModal()" class="btn btn-olive">Let's Plan Your Day</button>
+        <button onclick="openModal()" class="btn btn-olive btn-pulse">Let's Plan Your Day</button>
       </div>
+    </div>
+
+    <!-- Hero Slide Indicator Bars -->
+    <div class="hero-indicators" id="heroIndicators">
+      <button class="hero-indicator-bar active" onclick="setHeroSlide(0)" aria-label="Slide 1"></button>
+      <button class="hero-indicator-bar" onclick="setHeroSlide(1)" aria-label="Slide 2"></button>
+      <button class="hero-indicator-bar" onclick="setHeroSlide(2)" aria-label="Slide 3"></button>
+      <button class="hero-indicator-bar" onclick="setHeroSlide(3)" aria-label="Slide 4"></button>
+      <button class="hero-indicator-bar" onclick="setHeroSlide(4)" aria-label="Slide 5"></button>
     </div>
   </section>
 
@@ -68,7 +90,7 @@
        =================================================== -->
   <section id="about" class="values-section">
     <div class="container">
-      <div class="values-header">
+      <div class="values-header reveal-on-scroll">
         <h2 class="section-label">We Plan. You Celebrate.</h2>
         <div class="ornament-divider">
           <span class="ornament-diamond"></span>
@@ -80,7 +102,7 @@
 
       <div class="values-grid">
         <!-- 1. Personalized Experience -->
-        <div class="value-item">
+        <div class="value-item reveal-on-scroll" style="--delay: 0.1s;">
           <div class="value-icon-wrap">
             <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
               <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
@@ -92,7 +114,7 @@
         </div>
 
         <!-- 2. Bespoke Designs -->
-        <div class="value-item">
+        <div class="value-item reveal-on-scroll" style="--delay: 0.2s;">
           <div class="value-icon-wrap">
             <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
               <path d="M12 2a4 4 0 0 0-4 4c0 3 4 7 4 7s4-4 4-7a4 4 0 0 0-4-4Z"/>
@@ -104,7 +126,7 @@
         </div>
 
         <!-- 3. Flawless Execution -->
-        <div class="value-item">
+        <div class="value-item reveal-on-scroll" style="--delay: 0.3s;">
           <div class="value-icon-wrap">
             <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
               <circle cx="12" cy="14" r="7"/>
@@ -117,7 +139,7 @@
         </div>
 
         <!-- 4. Memorable Moments -->
-        <div class="value-item">
+        <div class="value-item reveal-on-scroll" style="--delay: 0.4s;">
           <div class="value-icon-wrap">
             <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
               <path d="M8 22h8M12 15v7M10 2l-2 9a4 4 0 0 0 4 4 4 4 0 0 0 4-4l-2-9Z"/>
@@ -136,7 +158,7 @@
        =================================================== -->
   <section id="services" class="services-section">
     <div class="container">
-      <div class="services-header">
+      <div class="services-header reveal-on-scroll">
         <h2 class="section-label">Our Services</h2>
         <div class="ornament-divider">
           <span class="ornament-diamond"></span>
@@ -145,7 +167,7 @@
 
       <div class="services-grid">
         <!-- Service 1: Full Service Planning -->
-        <div class="service-card">
+        <div class="service-card reveal-on-scroll" style="--delay: 0.15s;">
           <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=85" alt="Full Service Wedding Planning" class="service-card-bg">
           <div class="service-card-overlay"></div>
           <div class="service-card-content">
@@ -159,7 +181,7 @@
         </div>
 
         <!-- Service 2: Partial Planning -->
-        <div class="service-card">
+        <div class="service-card reveal-on-scroll" style="--delay: 0.3s;">
           <img src="https://images.unsplash.com/photo-1544078751-58fee2d8a03b?auto=format&fit=crop&w=800&q=85" alt="Partial Wedding Planning" class="service-card-bg">
           <div class="service-card-overlay"></div>
           <div class="service-card-content">
@@ -174,7 +196,7 @@
         </div>
 
         <!-- Service 3: Day of Coordination -->
-        <div class="service-card">
+        <div class="service-card reveal-on-scroll" style="--delay: 0.45s;">
           <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=800&q=85" alt="Day of Coordination" class="service-card-bg">
           <div class="service-card-overlay"></div>
           <div class="service-card-content">
@@ -195,14 +217,14 @@
        =================================================== -->
   <section id="portfolio" class="featured-section">
     <div class="container featured-grid">
-      <div class="featured-left">
+      <div class="featured-left reveal-on-scroll">
         <span class="sub-tag">Featured Weddings</span>
         <h2>Timeless Stories, Beautifully Told</h2>
-        <p>Explore real celebrations we've had the honor to plan and design.</p>
+        <p>Explore real celebrations we've had the honor to plan and design across Goa.</p>
         <button onclick="openModal()" class="btn btn-olive">View Portfolio</button>
       </div>
 
-      <div class="featured-carousel-wrapper">
+      <div class="featured-carousel-wrapper reveal-on-scroll" style="--delay: 0.2s;">
         <div class="featured-images-track" id="featuredTrack">
           <!-- Card 1 -->
           <div class="featured-img-card">
@@ -234,7 +256,7 @@
        TESTIMONIALS SECTION ("KIND WORDS")
        =================================================== -->
   <section class="testimonials-section">
-    <!-- Botanical corner illustrations -->
+    <!-- Botanical corner illustrations with gentle breeze sway animation -->
     <svg class="botanical-corner botanical-left" viewBox="0 0 100 100" fill="currentColor">
       <path d="M10,90 Q40,40 90,10 Q60,60 10,90 Z" opacity="0.3"/>
       <path d="M25,85 Q45,65 65,55 Q50,75 25,85 Z" opacity="0.2"/>
@@ -244,7 +266,7 @@
       <path d="M25,85 Q45,65 65,55 Q50,75 25,85 Z" opacity="0.2"/>
     </svg>
 
-    <div class="container testimonials-container">
+    <div class="container testimonials-container reveal-on-scroll">
       <h2 class="section-label">Kind Words</h2>
       <div class="ornament-divider">
         <span class="ornament-diamond"></span>
@@ -272,14 +294,14 @@
        =================================================== -->
   <section id="contact" class="cta-section">
     <div class="container">
-      <div class="cta-banner-card">
+      <div class="cta-banner-card reveal-on-scroll">
         <div class="cta-content">
           <h2>Let's Start Planning Your Forever</h2>
           <p>We'd love to hear your story and help you create a celebration that's uniquely yours.</p>
           <button onclick="openModal()" class="btn btn-olive">Get In Touch</button>
         </div>
         <div class="cta-image-wrapper">
-          <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=85" alt="Bride and Groom Embracing">
+          <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=85" alt="Bride and Groom Embracing" class="cta-blended-img">
         </div>
       </div>
     </div>

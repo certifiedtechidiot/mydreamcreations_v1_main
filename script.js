@@ -1,11 +1,157 @@
-// Initialize Lucide Icons
+// ===================================================
+// DREAM CREATION EVENTS - INTERACTIVE SCRIPT
+// Slideshows, Scroll Animations & WhatsApp Inquiries
+// ===================================================
+
 document.addEventListener('DOMContentLoaded', () => {
+  // Initialize Lucide Icons
   if (window.lucide) {
     lucide.createIcons();
   }
+
+  // Initialize Scroll Reveal Animations
+  initScrollAnimations();
+
+  // Initialize Navbar Scroll Listener
+  initNavbarScroll();
+
+  // Initialize Hero Slideshow Auto-Rotation
+  startHeroSlideshow();
+
+  // Initialize Featured Weddings Auto-Rotation
+  startFeaturedAutoRotate();
 });
 
-// Testimonials Data & Slider
+// ===================================================
+// 1. HERO SLIDESHOW WITH TIMED PHOTO INTERVALS
+// ===================================================
+let currentHeroSlide = 0;
+let heroTimer = null;
+const heroSlideInterval = 4500; // 4.5 seconds per photo
+
+function setHeroSlide(index) {
+  const slides = document.querySelectorAll('.hero-slide');
+  const indicators = document.querySelectorAll('.hero-indicator-bar');
+  if (!slides.length) return;
+
+  currentHeroSlide = index % slides.length;
+
+  slides.forEach((slide, i) => {
+    slide.classList.toggle('active', i === currentHeroSlide);
+  });
+
+  indicators.forEach((indicator, i) => {
+    indicator.classList.toggle('active', i === currentHeroSlide);
+  });
+}
+
+function nextHeroSlide() {
+  const slides = document.querySelectorAll('.hero-slide');
+  if (!slides.length) return;
+  setHeroSlide((currentHeroSlide + 1) % slides.length);
+}
+
+function startHeroSlideshow() {
+  if (heroTimer) clearInterval(heroTimer);
+  heroTimer = setInterval(nextHeroSlide, heroSlideInterval);
+}
+
+// ===================================================
+// 2. SCROLL REVEAL ANIMATIONS (INTERSECTION OBSERVER)
+// ===================================================
+function initScrollAnimations() {
+  const elements = document.querySelectorAll('.reveal-on-scroll');
+  
+  if (!('IntersectionObserver' in window)) {
+    elements.forEach(el => el.classList.add('in-view'));
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.15,
+    rootMargin: '0px 0px -40px 0px'
+  });
+
+  elements.forEach(el => observer.observe(el));
+}
+
+// ===================================================
+// 3. NAVBAR ELEVATION ON SCROLL
+// ===================================================
+function initNavbarScroll() {
+  const header = document.getElementById('siteHeader');
+  if (!header) return;
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  }, { passive: true });
+}
+
+// ===================================================
+// 4. FEATURED WEDDINGS AUTO-ROTATING GALLERY
+// ===================================================
+const featuredImages = [
+  "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=85",
+  "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=800&q=85",
+  "https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?auto=format&fit=crop&w=800&q=85",
+  "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=85",
+  "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=85",
+  "https://images.unsplash.com/photo-1544078751-58fee2d8a03b?auto=format&fit=crop&w=800&q=85"
+];
+
+let featuredStartIndex = 0;
+let featuredTimer = null;
+
+function updateFeaturedCards() {
+  const cards = document.querySelectorAll('.featured-img-card img');
+  cards.forEach((img, i) => {
+    const imgIndex = (featuredStartIndex + i) % featuredImages.length;
+    img.style.opacity = '0.3';
+    setTimeout(() => {
+      img.src = featuredImages[imgIndex];
+      img.style.opacity = '1';
+    }, 200);
+  });
+}
+
+function nextFeaturedSlide() {
+  featuredStartIndex = (featuredStartIndex + 1) % featuredImages.length;
+  updateFeaturedCards();
+}
+
+function prevFeaturedSlide() {
+  featuredStartIndex = (featuredStartIndex - 1 + featuredImages.length) % featuredImages.length;
+  updateFeaturedCards();
+}
+
+function startFeaturedAutoRotate() {
+  if (featuredTimer) clearInterval(featuredTimer);
+  featuredTimer = setInterval(nextFeaturedSlide, 5000);
+
+  // Pause on hover
+  const track = document.getElementById('featuredTrack');
+  if (track) {
+    track.addEventListener('mouseenter', () => clearInterval(featuredTimer));
+    track.addEventListener('mouseleave', () => {
+      featuredTimer = setInterval(nextFeaturedSlide, 5000);
+    });
+  }
+}
+
+// ===================================================
+// 5. TESTIMONIALS SLIDER
+// ===================================================
 const testimonials = [
   {
     quote: "Dream Creation Events made our dream wedding a reality. Their attention to detail, creativity and professionalism were beyond anything we imagined. We couldn't have asked for a more perfect day!",
@@ -37,7 +183,7 @@ function setTestimonial(index) {
       authorEl.innerText = testimonials[index].author;
       quoteEl.style.opacity = '1';
       authorEl.style.opacity = '1';
-    }, 200);
+    }, 250);
   }
 
   dots.forEach((dot, idx) => {
@@ -45,46 +191,15 @@ function setTestimonial(index) {
   });
 }
 
-// Auto-rotate testimonials every 6 seconds
+// Auto-rotate testimonials
 setInterval(() => {
   activeTestimonialIndex = (activeTestimonialIndex + 1) % testimonials.length;
   setTestimonial(activeTestimonialIndex);
-}, 6000);
+}, 6500);
 
-// Featured Weddings Carousel Slide
-const featuredImages = [
-  "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=85",
-  "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=800&q=85",
-  "https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?auto=format&fit=crop&w=800&q=85",
-  "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=85",
-  "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=85"
-];
-
-let featuredStartIndex = 0;
-
-function updateFeaturedCards() {
-  const cards = document.querySelectorAll('.featured-img-card img');
-  cards.forEach((img, i) => {
-    const imgIndex = (featuredStartIndex + i) % featuredImages.length;
-    img.style.opacity = '0.5';
-    setTimeout(() => {
-      img.src = featuredImages[imgIndex];
-      img.style.opacity = '1';
-    }, 150);
-  });
-}
-
-function nextFeaturedSlide() {
-  featuredStartIndex = (featuredStartIndex + 1) % featuredImages.length;
-  updateFeaturedCards();
-}
-
-function prevFeaturedSlide() {
-  featuredStartIndex = (featuredStartIndex - 1 + featuredImages.length) % featuredImages.length;
-  updateFeaturedCards();
-}
-
-// Modal Management
+// ===================================================
+// 6. MODAL & INQUIRY (DIRECT WHATSAPP)
+// ===================================================
 function openModal() {
   const modal = document.getElementById('inquiryModal');
   if (modal) {
@@ -120,7 +235,6 @@ function handleBackdropClick(e) {
   }
 }
 
-// Form Submission -> Direct WhatsApp
 function submitInquiry(e) {
   e.preventDefault();
   const name = document.getElementById('name').value;
@@ -130,9 +244,9 @@ function submitInquiry(e) {
 
   const text = `Hello Dream Creation Events! 💍\n\n` +
     `My name is *${name}*.\n` +
-    `*Service:* ${service}\n` +
-    `*Date & Location:* ${date}\n` +
-    `*Vision:* ${notes || 'Looking to discuss wedding planning & decor'}\n\n` +
+    `*Service Needed:* ${service}\n` +
+    `*Date & Location in Goa:* ${date}\n` +
+    `*Vision & Notes:* ${notes || 'Looking to discuss wedding planning & decor'}\n\n` +
     `Could you let us know your availability?`;
 
   const phone = '918788149303';
@@ -140,23 +254,28 @@ function submitInquiry(e) {
   closeModal();
 }
 
-// Mobile Menu Toggle
+// ===================================================
+// 7. MOBILE MENU
+// ===================================================
 function toggleMobileMenu() {
-  const nav = document.querySelector('.nav-links');
+  const nav = document.getElementById('navLinks');
   if (nav) {
-    if (nav.style.display === 'flex') {
+    if (nav.classList.contains('mobile-open')) {
+      nav.classList.remove('mobile-open');
       nav.style.display = 'none';
     } else {
+      nav.classList.add('mobile-open');
       nav.style.display = 'flex';
       nav.style.flexDirection = 'column';
       nav.style.position = 'absolute';
-      nav.style.top = '84px';
+      nav.style.top = '72px';
       nav.style.left = '0';
       nav.style.width = '100%';
       nav.style.background = '#FFFFFF';
       nav.style.padding = '24px';
-      nav.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
+      nav.style.boxShadow = '0 10px 25px rgba(0,0,0,0.12)';
       nav.style.borderBottom = '1px solid #E8E5DF';
+      nav.style.gap = '20px';
     }
   }
 }
