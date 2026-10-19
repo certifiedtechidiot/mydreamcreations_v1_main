@@ -62,7 +62,7 @@ function startHeroSlideshow() {
 function initScrollAnimations() {
   const elements = document.querySelectorAll('.reveal-on-scroll');
   
-  if (!('IntersectionObserver' in window)) {
+  if (!('IntersectionObserver' in window) || window.innerWidth <= 768) {
     elements.forEach(el => el.classList.add('in-view'));
     return;
   }
@@ -75,11 +75,16 @@ function initScrollAnimations() {
       }
     });
   }, {
-    threshold: 0.15,
-    rootMargin: '0px 0px -40px 0px'
+    threshold: 0.1,
+    rootMargin: '0px 0px -20px 0px'
   });
 
   elements.forEach(el => observer.observe(el));
+
+  // Safety fallback for mobile in-app browsers
+  setTimeout(() => {
+    elements.forEach(el => el.classList.add('in-view'));
+  }, 1500);
 }
 
 // ===================================================
@@ -255,27 +260,24 @@ function submitInquiry(e) {
 }
 
 // ===================================================
-// 7. MOBILE MENU
+// 7. MOBILE MENU DRAWER
 // ===================================================
 function toggleMobileMenu() {
-  const nav = document.getElementById('navLinks');
-  if (nav) {
-    if (nav.classList.contains('mobile-open')) {
-      nav.classList.remove('mobile-open');
-      nav.style.display = 'none';
-    } else {
-      nav.classList.add('mobile-open');
-      nav.style.display = 'flex';
-      nav.style.flexDirection = 'column';
-      nav.style.position = 'absolute';
-      nav.style.top = '72px';
-      nav.style.left = '0';
-      nav.style.width = '100%';
-      nav.style.background = '#FFFFFF';
-      nav.style.padding = '24px';
-      nav.style.boxShadow = '0 10px 25px rgba(0,0,0,0.12)';
-      nav.style.borderBottom = '1px solid #E8E5DF';
-      nav.style.gap = '20px';
-    }
+  const drawer = document.getElementById('mobileMenuDrawer');
+  const btn = document.getElementById('mobileMenuBtn');
+  if (drawer && btn) {
+    const isOpen = drawer.classList.toggle('open');
+    btn.classList.toggle('open', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  }
+}
+
+function closeMobileMenu() {
+  const drawer = document.getElementById('mobileMenuDrawer');
+  const btn = document.getElementById('mobileMenuBtn');
+  if (drawer && btn) {
+    drawer.classList.remove('open');
+    btn.classList.remove('open');
+    document.body.style.overflow = '';
   }
 }

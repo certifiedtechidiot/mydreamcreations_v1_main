@@ -37,17 +37,46 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
 
-      <!-- Action Button -->
+      <!-- Action Button & Mobile Toggle -->
       <div class="nav-actions">
-        <button onclick="openModal()" class="btn btn-olive">Inquire Now</button>
+        <button onclick="openModal()" class="btn btn-olive nav-inquire-btn">Inquire Now</button>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMobileMenu()" aria-label="Toggle Navigation">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
       </div>
-
-      <!-- Mobile Menu Toggle Button -->
-      <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle Navigation">
-        <i data-lucide="menu"></i>
-      </button>
     </div>
   </header>
+
+  <!-- Mobile Menu Drawer (Fixed to Viewport) -->
+  <div class="mobile-menu-drawer" id="mobileMenuDrawer">
+    <div class="mobile-drawer-top">
+      <div class="brand-logo">
+        <div class="brand-text">
+          <span class="brand-name" style="font-size: 1.15rem;">Dream Creation</span>
+          <span class="brand-tagline">Wedding Planning • Goa</span>
+        </div>
+      </div>
+      <button class="mobile-drawer-close" onclick="closeMobileMenu()" aria-label="Close menu">&times;</button>
+    </div>
+    <ul class="mobile-nav-links">
+      <li><a href="#home" onclick="closeMobileMenu()">Home</a></li>
+      <li><a href="#about" onclick="closeMobileMenu()">About</a></li>
+      <li><a href="#services" onclick="closeMobileMenu()">Services</a></li>
+      <li><a href="#portfolio" onclick="closeMobileMenu()">Portfolio</a></li>
+      <li><a href="#journal" onclick="closeMobileMenu()">Journal</a></li>
+      <li><a href="#contact" onclick="closeMobileMenu()">Contact</a></li>
+    </ul>
+    <div class="mobile-drawer-footer">
+      <button onclick="closeMobileMenu(); openModal();" class="btn btn-olive" style="width: 100%; padding: 14px; margin-bottom: 12px; border-radius: 9999px;">
+        Book Free Consultation &rarr;
+      </button>
+      <a href="https://wa.me/918788149303" target="_blank" class="mobile-drawer-contact-link">
+        <i data-lucide="message-circle" style="width: 16px; height: 16px;"></i> WhatsApp Director Zaan (+91 8788149303)
+      </a>
+    </div>
+  </div>
 
   <!-- ===================================================
        HERO SECTION (DYNAMIC MULTI-PHOTO SLIDESHOW)
@@ -55,7 +84,7 @@
   <section id="home" class="hero-section">
     <!-- Background Slideshow with Smooth Crossfade & Ken Burns Zoom -->
     <div class="hero-slideshow" id="heroSlideshow">
-      <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1920&q=85');"></div>
+      <div class="hero-slide active" style="background-image: url('assets/hero_goa_wedding.jpg');"></div>
       <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1544078751-58fee2d8a03b?auto=format&fit=crop&w=1920&q=85');"></div>
       <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=1920&q=85');"></div>
       <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1920&q=85');"></div>
